@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/jquery-1.12.3.js"></script>
+    <script src="/while.js" defer type="text/javascript"></script>
+    <script>
+    var year = 2023;
+    var month = 1;
+    var day = 1;
+
+    while (year < 3000) {
+        if (month == 4 || month == 6 || month == 9 || month == 11) {
+            document.write(month, "월 29일까지<br/>");
+            while(day<30){
+                document.write(day+"<br/>");
+                day++;
+            }
+        } else if(month==2) {
+            <!--윤년조건 29일까지-->
+            if(year%4==0 && year%100!=0){
+                document.write("윤년"+year+"년"+month, "월 29일까지<br/>");
+                while(day<30){
+                    document.write(day+"<br/>");
+                    day++;
+                }
+            }else{
+                document.write("윤년아닌"+year+"년"+month, "월 30일까지<br/>");
+                while(day<31){
+                    document.write(day+"<br/>");
+                    day++;
+                }
+            } 
+        }else{
+            document.write(month, "월 30일까지<br/>");
+            while(day<31){
+                document.write(day+"<br/>");
+                day++;
+            }
+        }
+        month++;
+        if (month > 12) {
+            month = 1;
+            year++;
+        document.write(year, "년<br/>");
+        }
+    }
+    </script>
+</head>
+<body>
+</body>
+</html>
